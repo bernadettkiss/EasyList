@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './pages/auth.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
 import './pages/product.dart';
@@ -20,7 +21,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _products.add(product);
     });
-    print(_products);
   }
 
   void _deleteProduct(int index) {
@@ -35,7 +35,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           primarySwatch: Colors.deepOrange, accentColor: Colors.deepPurple),
       routes: {
-        '/': (BuildContext context) => ProductsPage(_products),
+        '/': (BuildContext context) => AuthPage(),
+        '/products': (BuildContext context) => ProductsPage(_products),
         '/admin': (BuildContext context) =>
             ProductsAdminPage(_addProduct, _deleteProduct),
       },
